@@ -1,0 +1,65 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Movie</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Release Date
+                                    </th>
+                                    <th>
+                                        Genres
+                                    </th>
+                                    <th>
+                                        Rating
+                                    </th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let movie of movies | async ; index as i">
+                                        <td>
+                                            <img src="{{ movie.image }}" class="image-dimension">
+                                        </td>
+                                        <td>
+                                            {{ i+1 }}. {{ movie.title }}
+                                        </td>
+                                        <td>
+                                            <span *ngIf="!movie.releaseDate">-</span>
+                                            {{ movie.releaseDate | date }}
+                                        </td>
+                                        <td>
+                                            {{ movie.genres }}
+                                        </td>
+                                        <td>
+                                            {{ movie.rating }}
+                                        </td>
+                                        <td class="text-right">
+                                            <button mat-button (click)="fnEdit(i)">
+                                                <i class="material-icons">create</i>
+                                            </button>
+                                            <button mat-button (click)="fnDelete(movie)">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

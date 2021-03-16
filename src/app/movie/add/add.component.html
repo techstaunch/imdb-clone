@@ -1,0 +1,88 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <mat-horizontal-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Fill out movie Detail</ng-template>
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Name" formControlName="TitleCtrl"
+                            required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Type</mat-label>
+                        <input matInput placeholder="Type" formControlName="TypeCtrl" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Geners</mat-label>
+                        <input matInput placeholder="Geners (action, thrillar)" formControlName="GenersCtrl" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" label="Fill out Details">
+                <form [formGroup]="secondFormGroup">
+                    <mat-form-field>
+                        <mat-label>Screen Time</mat-label>
+                        <input matInput placeholder="input time in minutes" formControlName="screenTimeCtrl"
+                            value='00:00' type="text">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Description</mat-label>
+                        <input matInput placeholder="Description" formControlName="descriptionCtrl">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Image</mat-label>
+                        <input matInput placeholder="Enter image url" formControlName="imageCtrl">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Trailer </mat-label>
+                        <input matInput placeholder="Enter trailer video url" formControlName="imageCtrl">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Release Date </mat-label>
+                        <input matInput formControlName="releaseDateCtrl" type="date">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Plot </mat-label>
+                        <input matInput placeholder="Plot" formControlName="plotCtrl">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Keyword</mat-label>
+                        <input matInput placeholder="Keyword (keyword1, keyword2)" formControlName="keywordCtrl">
+                    </mat-form-field>
+
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="thirdFormGroup" label="Fill out Details">
+                <form [formGroup]="thirdFormGroup">
+                    <mat-form-field>
+                        <mat-label>Tagline</mat-label>
+                        <input matInput placeholder="Tagline" formControlName="taglineCtrl" required>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Release Status</mat-label>
+                        <input matInput placeholder="Release Status" formControlName="releaseStatusCtrl" required>
+                    </mat-form-field>
+
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="fnSubmit()">Submit</button>
+                    </div>
+                </form>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</div>
